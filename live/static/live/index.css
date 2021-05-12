@@ -1,3 +1,21 @@
 h1 {
     text-align: center;
 }
+
+input[type=url] {
+    min-width: 50%;
+    width: 80%;
+    /* margin: 8px 10%; */
+    margin: 8px auto;
+}
+
+input[type=submit] {
+    width: 100px;
+    min-width: 100px;
+    margin: 8px auto;
+}
+
+input {
+    display: block;
+    box-sizing: border-box;
+}
