@@ -6,5 +6,15 @@
   </head>
   <body>
     <h1>YoutubeStationへようこそ</h1>
+    {% if live_url %}
+    <p>
+      {{ live_url }}
+    </p>
+    {% endif %}
+    <form>
+      <label for="live_url">生放送のURL：</label>
+      <input type="url" id="live_url" name="live_url">
+      <input type="submit" name="Submit">
+    </form>
   </body>
 </html>

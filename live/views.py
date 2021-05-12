@@ -3,4 +3,8 @@ from django.http import HttpResponse
 from django.template import loader
 
 def index(request):
-    return render(request, 'live/index.html')
+    try:
+        live_url = request.GET['live_url']
+    except(KeyError):
+        return render(request, 'live/index.html')
+    return render(request, 'live/index.html', {'live_url': live_url})
