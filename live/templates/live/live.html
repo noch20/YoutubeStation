@@ -1,4 +1,20 @@
 <!DOCTYPE html>
 <html>
-    <p>aiueoka</p>
+  <head>
+    <meta charset="utf-8">
+    <title>Youtube Station</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'live/css/live.css' %}">
+  </head>
+  <body>
+    <h1>YoutubeStationへようこそ</h1>
+    {% if live_url %}
+      <p>{{ live_url }}</p>
+    {% endif %}
+    <form>
+      <!-- <label for="live_url">生放送のURL：</label> -->
+      <input type="url" id="live_url" name="live_url" placeholder="生放送のURL">
+      <input type="submit" name="Submit" value="解析する">
+    </form>
+  </body>
 </html>

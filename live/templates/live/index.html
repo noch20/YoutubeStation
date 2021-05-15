@@ -6,11 +6,14 @@
         <meta charset="UTF-8">
         <title>YouTubed Station</title>
         <link rel="stylesheet" href="{% static 'live/css/index.css' %}">
+        <script src="{% static 'live/js/jquery-3.6.0.min.js' %}"></script>
+        <script src="{% static 'live/js/index.js' %}"></script>
+
     </head>
 
     <body>
         <header>
-            <div class="header-logo">YouTube_Station</div>
+            <div class="header-logo"><a href="http://127.0.0.1:8000/">YouTube_Station</a></div>
             <div class="header-menu">
                 <ul class="nav">
                     <li>概要</li>
@@ -18,14 +21,14 @@
                 </ul>
             </div>
             <div class="ad">
-                <p>一番伝えたいことを書く</p>
+                <!-- <p>一番伝えたいことを書く</p> -->
             </div>
         </header>
-        <div class="main">
+        <!-- <div class="main">
             <div class="form">
                 <input type="text" class="input">
                 <input type="button" class="submit">
-            </div>
+            </div> -->
             <div class="contents">
                 <h2 class="contents-title">Contents</h2>
                 <ul class="contents-list-wrapp">
@@ -41,9 +44,11 @@
                 
                     <li class="contents-item">
                         <a href="http://127.0.0.1:8000/live/">
-                            <img src="{% static 'live/img/Live.png' %}" alt="My image2">
+                          <img src="{% static 'live/img/Live.png' %}" alt="My image2">
                         </a>
-                        <p class="contents-subtitle"><a href="http://127.0.0.1:8000/live/">Live</a></p>
+                        <p class="contents-subtitle">
+                          <a href="http://127.0.0.1:8000/live/">Live</a>
+                        </p>
                         <p>　ここではライブについての</p>
                         <p>解析を行います</p>
                     </li>
