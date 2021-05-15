@@ -10,8 +10,8 @@ def index(request):
     return render(request, 'live/index.html', {'live_url': live_url})
 
 
-def movie(request):
+def live(request):
     # return render(request, 'live/movie/movie.html')
-    template = loader.get_template('live/movie/movie.html')
+    template = loader.get_template('live/live.html')
     context = {}
     return HttpResponse(template.render(context, request))
