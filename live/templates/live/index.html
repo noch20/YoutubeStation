@@ -1,20 +1,67 @@
+
+{% load static %}
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Youtube Station</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'live/index.css' %}">
-  </head>
-  <body>
-    <h1>YoutubeStationへようこそ</h1>
-    {% if live_url %}
-      <p>{{ live_url }}</p>
-    {% endif %}
-    <form>
-      <!-- <label for="live_url">生放送のURL：</label> -->
-      <input type="url" id="live_url" name="live_url" placeholder="生放送のURL">
-      <input type="submit" name="Submit" value="解析する">
-    </form>
-  </body>
+    <head>
+        <meta charset="UTF-8">
+        <title>YouTubed Station</title>
+        <link rel="stylesheet" href="{% static 'live/css/style.css' %}">
+    </head>
+
+    <body>
+        <header>
+            <div class="header-logo">YouTube_Station</div>
+            <div class="header-menu">
+                <ul class="nav">
+                    <li>概要</li>
+                    <li>お問い合わせ</li>
+                </ul>
+            </div>
+            <div class="ad">
+                <p>一番伝えたいことを書く</p>
+            </div>
+        </header>
+        <div class="main">
+            <div class="form">
+                <input type="text" class="input">
+                <input type="button" class="submit">
+            </div>
+            <div class="contents">
+                <h2 class="contents-title">Contents</h2>
+                <ul class="contents-list-wrapp">
+                    <li class="contents-item">
+                        <a href="http://127.0.0.1:8000/live/">
+                            <img src="{% static 'live/img/channel.png' %}" alt="My image1">
+                        </a> 
+                        <p class="contents-subtitle"><a href="http://127.0.0.1:8000/live/">Channel</a></p>
+                        <p> 
+                            　ここではチャンネルについての解析を行います
+                        </p>
+                    </li>
+                
+                    <li class="contents-item">
+                        <a href="http://127.0.0.1:8000/live/">
+                            <img src="{% static 'live/img/Live.png' %}" alt="My image2">
+                        </a>
+                        <p class="contents-subtitle"><a href="http://127.0.0.1:8000/live/">Live</a></p>
+                        <p>　ここではライブについての</p>
+                        <p>解析を行います</p>
+                    </li>
+
+                    <li class="contents-item">
+                        <a href="http://127.0.0.1:8000/live/movie/">
+                            <img src="{% static 'live/img/Movie.png' %}" alt="My image3">
+                        </a>
+                        <p class="contents-subtitle"><a href="http://127.0.0.1:8000/live/movie/">Movie</a></p>
+
+                        <p>　ここでは動画についての</p>
+                        <p>解析を行います</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <footer>
+            <p>フッター</p>
+        </footer>
+    </body>
 </html>

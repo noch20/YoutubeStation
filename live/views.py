@@ -8,3 +8,10 @@ def index(request):
     except(KeyError):
         return render(request, 'live/index.html')
     return render(request, 'live/index.html', {'live_url': live_url})
+
+
+def movie(request):
+    # return render(request, 'live/movie/movie.html')
+    template = loader.get_template('live/movie/movie.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
