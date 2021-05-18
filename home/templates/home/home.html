@@ -1,0 +1,31 @@
+
+{% load i18n static %}
+<!DOCTYPE html>{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}">
+<head>
+    <title>template test</title>
+
+    <link rel="stylesheet" href="{% static 'home/css/search_form.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="qwerty">
+        <div class="header">
+            YouTube Station.
+        </div>
+        <div class="main">
+            <div class="search-box">
+                <form method="get" action="." class="search_container">
+                    <input type="text" size="25" placeholder="チャンネル名もしくは動画，生放送のURLを入力してください．">
+                    <input type="submit" value="&#xf04b">
+                </form>
+            </div>
+        </div>
+        <div class="footer">
+    
+        </div>
+    </div>
+</body>
+
+</html>
