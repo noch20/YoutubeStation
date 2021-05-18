@@ -5,6 +5,7 @@
     <title>Youtube Station</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'live/index.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <h1>YoutubeStationへようこそ</h1>
@@ -16,5 +17,36 @@
       <input type="url" id="live_url" name="live_url" placeholder="生放送のURL">
       <input type="submit" name="Submit" value="解析する">
     </form>
+    {% if live_url %}
+        <div>
+            <canvas id="chart"></canvas>
+            <script>
+                const labels = {{ test_label }};
+                const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'My First dataset',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: {{ test_data }},
+                }]
+                };
+                const config = {
+                    type: 'line',
+                    data,
+                    options: {
+                        scales: {
+                            x: {
+                                type: 'linear'
+                            }
+                        }
+                    }
+                }
+                var chart = new Chart(
+                    document.getElementById("chart"), config
+                )
+            </script>
+        </div>
+    {% endif %}
   </body>
 </html>
