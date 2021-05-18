@@ -1,4 +1,4 @@
-from typing import AbstractSet, Callable, Iterable, List, NamedTuple, Optional
+
 import json
 
 from bs4 import BeautifulSoup
@@ -119,4 +119,35 @@ def get_chat_replay_data(video_url):
 
     return result
 
-print(get_chat_replay_data('https://www.youtube.com/watch?v=-mZnoc6dI9A'))
+a = get_chat_replay_data('https://www.youtube.com/watch?v=-mZnoc6dI9A')
+class Time:
+    def __init__(self, t: str):
+        colon = t.find(":")
+        self.m = int(t[:colon])
+        self.s = int(t[colon+1])
+
+    def __str__(self) -> str:
+        return str(self.m) + ":" + str(self.s)
+    def __repr__(self) -> str:
+        return str(self)
+
+    def __eq__(self, o: object) -> bool:
+        return self.m == o.m and self.s == o.s
+    
+    def __lt__(self, other):
+        if not isinstance(other, Time):
+            return NotImplemented
+        return self.self.m < other.m or (self.m == other.m and self.s < other.s)
+    
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
+    def __le__(self, other):
+        return self.__lt__(other) or self.__eq__(other)
+
+    def __gt__(self, other):
+        return not self.__le__(other)
+
+    def __ge__(self, other):
+        return not self.__lt__(other)
+print(list(map(lambda x: (x["text"], Time(x["time"])), a)))
