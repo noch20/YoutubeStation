@@ -150,4 +150,16 @@ class Time:
 
     def __ge__(self, other):
         return not self.__lt__(other)
+
+    def __plus__(self, other):
+        s = self.s + other.s
+        m = self.m + other.m
+        while s >= 60:
+            s -= 60
+            m += 1
+        a = Time("0:0")
+        a.m = m
+        a.s = s
+        return s
+
 print(list(map(lambda x: (x["text"], Time(x["time"])), a)))
