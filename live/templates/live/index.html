@@ -21,27 +21,26 @@
         <div>
             <canvas id="chart"></canvas>
             <script>
-                const labels = [
-                'January',
-                'February',
-                'March',
-                'April',
-                'May',
-                'June',
-                ];
+                const labels = [1,2,3,4,5,6,100];
                 const data = {
                 labels: labels,
                 datasets: [{
                     label: 'My First dataset',
                     backgroundColor: 'rgb(255, 99, 132)',
                     borderColor: 'rgb(255, 99, 132)',
-                    data: [0, 10, 5, 2, 20, 30, 45],
+                    data: {{ test_data }},
                 }]
                 };
                 const config = {
                     type: 'line',
                     data,
-                    options: {}
+                    options: {
+                        scales: {
+                            x: {
+                                type: 'linear'
+                            }
+                        }
+                    }
                 }
                 var chart = new Chart(
                     document.getElementById("chart"), config
