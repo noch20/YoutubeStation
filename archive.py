@@ -119,7 +119,6 @@ def get_chat_replay_data(video_url):
 
     return result
 
-a = get_chat_replay_data('https://www.youtube.com/watch?v=-mZnoc6dI9A')
 class Time:
     def __init__(self, t: str):
         colon = t.find(":")
@@ -162,4 +161,6 @@ class Time:
         a.s = s
         return s
 
-print(list(map(lambda x: (x["text"], Time(x["time"])), a)))
+a = get_chat_replay_data('https://www.youtube.com/watch?v=-mZnoc6dI9A')
+b = list(map(lambda x: (x["text"], Time(x["time"])), a))
+
