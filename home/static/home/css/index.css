@@ -1,0 +1,132 @@
+*{
+    box-sizing: border-box;
+}
+
+li{
+    list-style: none;
+}
+
+header{
+    height: 100px;
+    width: 100%;
+    background-color: #1575a1;
+    position: fixed;
+    top: 0;
+    transition: .3s;
+    z-index: 10;
+
+}
+
+.header-logo{
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+    left: 15px;
+    margin-top: 32px;
+    color: #fff;
+    
+  }
+
+.header-menu{
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* z-index: 2; */
+    margin-top: 32px;
+    /* width: 100%; */
+}
+
+.nav li{
+    min-width: 100px;
+    float: left;
+    position: relative;
+    margin-right: 25px;
+    height: 34px;
+}
+
+.ad{
+    position: relative;
+    top: 250px;
+    left: auto;
+}
+
+.ad p{
+    font-size: 50px;
+    text-align: center;
+}
+  
+.main{
+    position: absolute;
+    top: 600px;
+    left: 0;
+    width: 100%;
+    height: 1000px;
+    padding: 100px 80px;
+}
+
+
+  
+
+
+.form{
+    text-align: center;
+}
+
+.form .input{
+    width: 50%;
+    height: 50px;
+    float: left;
+    text-align: center;
+}
+
+.form .submit{
+    width: 70px;
+    height: 50px;
+    float: left;
+}
+
+.contents{
+    width: 80%;
+    /* margin: 0 auto; */
+    margin-top:100px;
+}
+
+.contents-title{
+    font-size: 50px;
+    font-weight: 700;
+    border-bottom: 2px solid #dee7ec;
+    padding-bottom: 15px;
+    margin: 50px;
+    text-align: center;
+}
+
+.contents-list-wrapp{
+    width: max-content;
+    margin: 15px auto 0;
+}
+
+.contents-item{
+    width: 230px;
+    height: 188px;
+    float: left;
+    margin-right: 75px;
+    text-align: center;
+    z-index: 0;
+}
+
+.contents-subtitle{
+    color: #1575a1;
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 5px 0 8px;
+    text-align: center;
+}
+
+footer{
+    position: absolute;
+    top: 1600px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+      background-color: #fa709a;
+  }
