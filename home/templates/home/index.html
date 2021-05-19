@@ -42,11 +42,11 @@
                     </li>
                 
                     <li class="contents-item">
-                        <a href="http://127.0.0.1:8000/live/">
+                        <a href="{% url 'live:index' %}">
                           <img src="{% static 'home/img/Live.png' %}" alt="My image2">
                         </a>
                         <p class="contents-subtitle">
-                          <a href="http://127.0.0.1:8000/live/">Live</a>
+                          <a href="{% url 'live:index' %}">Live</a>
                         </p>
                         <p>　ここではライブについての</p>
                         <p>解析を行います</p>
