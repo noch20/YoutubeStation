@@ -10,20 +10,32 @@
         <script src="{% static 'live/js/index.js' %}"></script>
 
     </head>
+    
+    <header>
+      <!-- <div class="header-logo"><a href="http://127.0.0.1:8000/">YouTube_Station</a></div> -->
+      <ul class="header-menu">
+        <li><a href="http://127.0.0.1:8000/">YouTube_Station</a></li>
+        <li>解析
+          <ul class="dropdwn_menu">
+          <li><a href="#">Channel</a></li>
+          <li><a href="#">Live</a></li>
+          <li><a href="#">Movie</a></li>
+          </ul>
+        </li>
+        <li>お問い合わせ
+          <ul class="dropdwn_menu">
+            <li><a href="#">お問い合わせ先</a></li>
+            <li><a href="#">広告掲載について</a></li>
+            </ul>
+        </li>
+          
+      </ul>
+      <div class="ad">
+          <!-- <p>一番伝えたいことを書く</p> -->
+      </div>
+  </header>
 
     <body>
-        <header>
-            <div class="header-logo"><a href="http://127.0.0.1:8000/">YouTube_Station</a></div>
-            <div class="header-menu">
-                <ul class="nav">
-                    <li>概要</li>
-                    <li>お問い合わせ</li>
-                </ul>
-            </div>
-            <div class="ad">
-                <!-- <p>一番伝えたいことを書く</p> -->
-            </div>
-        </header>
         <!-- <div class="main">
             <div class="form">
                 <input type="text" class="input">
@@ -57,7 +69,7 @@
                         <a href="http://127.0.0.1:8000/">
                             <img src="{% static 'live/img/Movie.png' %}" alt="My image3">
                         </a>
-                        <p class="contents-subtitle"><a href="http://127.0.0.1:8000/">Movie</a></p>
+                        <p class="contents-subtitle"><a href="http://127.0.0.1:8000/drop/">Movie</a></p>
 
                         <p>　ここでは動画についての</p>
                         <p>解析を行います</p>

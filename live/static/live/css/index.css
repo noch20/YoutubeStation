@@ -3,13 +3,26 @@
 }
 
 li{
-    list-style: none;
+    max-width: calc(1200px/5);
+    position: relative;
+    padding: 5px;
+    display: block;
+    cursor: pointer;
+}
+
+
+ul{
+    text-align: center;
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+    /* color: #fff; */
 }
 
 header{
-    height: 100px;
+    height: 300px;
     width: 100%;
-    background-color: #1575a1;
+    background-color: #ceec1f;
     position: fixed;
     top: 0;
     transition: .3s;
@@ -17,7 +30,7 @@ header{
 
 }
 
-.header-logo{
+/* .header-logo{
     font-size: 30px;
     position: absolute;
     top: 0;
@@ -25,14 +38,16 @@ header{
     margin-top: 32px;
     color: #fff;
     
-  }
+  } */
 
 .header-menu{
     position: absolute;
-    top: 0;
-    right: 0;
+    /* top: 0; */
+    /* right: 0; */
     /* z-index: 2; */
     margin-top: 32px;
+    max-width: 1200px;
+    display: flex;
     /* width: 100%; */
 }
 
@@ -122,6 +137,40 @@ header{
     text-align: center;
 }
 
+.header-menu>li{
+    width: 1200px;
+    margin: 1px;
+    /* background: #7ba5ff; */
+    background: #fff;
+
+    display: inline;
+}
+
+.dropdwn_menu{
+    width: 100%;
+    display: none;
+    position: absolute;
+    margin-left: -5px;
+    margin-top: 5px;
+    padding: 0;
+    background: rgb(75, 100, 209);
+}
+.dropdwn_menu li{
+    width: 100%;
+}
+
+.dropdwn_menu li a{
+    padding: 5px 0;
+    margin: -5px 5px -5px -5px;
+    display: block;
+    color: rgb(65, 65, 65);
+}
+
+li a:hover{
+    background: #b3d7ff;
+    color: rgb(65, 65, 65);
+}
+
 footer{
     position: absolute;
     top: 1600px;
@@ -130,3 +179,4 @@ footer{
     height: 100px;
       background-color: #fa709a;
   }
+

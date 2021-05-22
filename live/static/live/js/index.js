@@ -15,8 +15,15 @@ $(function() {
       startPos = value;
     });
 
-    $nav_toggle.on('click', function () {
-        $('.nav_toggle, .nav').toggleClass('show');
-      });
+
+    $('.header-menu li').hover(function(){
+        $("> ul:not(:animated)", this).slideDown();
+    }, function(){
+        $("ul.header-menu",this).slideUp();
+    });
+
+    // $nav_toggle.on('click', function () {
+    //     $('.nav_toggle, .nav').toggleClass('show');
+    //   });
       
   });
