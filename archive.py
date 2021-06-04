@@ -1,4 +1,3 @@
-
 import json
 
 from bs4 import BeautifulSoup
@@ -128,6 +127,31 @@ def string2seconds(s: str) -> int:
         ret += int(s[colon+1:])
     return ret
 
+
+def histogram(chatlog, interval):
+    result = []
+    max_time = chatlog[-1][1] 
+    count = 0
+    Chat_No = 0
+    for x in range(interval, max_time, interval):
+        while(1):
+            if (chatlog[Chat_No][1] > x):
+                result.append((x, count))
+                count = 0
+                break
+            else:
+                count += 1
+                Chat_No += 11
+    result.append((result[-1][0] + interval, len(chatlog) - Chat_No))
+    return result
+    
+        
+
+
+
 a = get_chat_replay_data('https://www.youtube.com/watch?v=-mZnoc6dI9A')
 b = list(map(lambda x: (x["text"], string2seconds(x["time"])), a))
 print(b)
+interval = 180
+c = histogram(b, interval)
+print(c)
