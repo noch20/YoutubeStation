@@ -1,4 +1,5 @@
 import json
+from typing import Counter
 
 from bs4 import BeautifulSoup
 import requests
@@ -144,14 +145,32 @@ def histogram(chatlog, interval):
                 Chat_No += 1
     result.append((result[-1][0] + interval, len(chatlog) - Chat_No))
     return result
-    
-        
-
 
 
 a = get_chat_replay_data('https://www.youtube.com/watch?v=-mZnoc6dI9A')
 b = list(map(lambda x: (x["text"], string2seconds(x["time"])), a))
-print(b)
+# print(b)
 interval = 180
 c = histogram(b, interval)
 print(c)
+
+import MeCab
+
+# 本番環境でメカブの辞書のディレクトリが違うはず
+wakati = MeCab.Tagger("-F'%M/%f[0] ' --eos-format='' -d /usr/local/lib/mecab/dic/mecab-ipadic-neologd")
+d = list(map(lambda x: x[0], b))
+counter = Counter()
+for e in d:
+    g = wakati.parse(e).split()
+    f = list(
+        filter(
+            lambda x: not (x.endswith("助詞") or x.endswith("助動詞")),
+            g
+        )
+    )
+    counter.update(f)
+print(counter)
+print(counter.most_common(3))
+
+# "草"が含まれるコメントがされた時間のリスト
+print(list(map(lambda x: x[1], filter(lambda x: "草" in x[0], b))))
