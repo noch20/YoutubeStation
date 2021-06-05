@@ -142,20 +142,17 @@ def histogram(chatlog, interval):
                 break
             else:
                 count += 1
-                Chat_No += 11
+                Chat_No += 1
     result.append((result[-1][0] + interval, len(chatlog) - Chat_No))
     return result
-    
-        
-
 
 
 a = get_chat_replay_data('https://www.youtube.com/watch?v=-mZnoc6dI9A')
 b = list(map(lambda x: (x["text"], string2seconds(x["time"])), a))
 # print(b)
 interval = 180
-# c = histogram(b, interval)
-# print(c)
+c = histogram(b, interval)
+print(c)
 
 import MeCab
 
