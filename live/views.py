@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 
+import json
+
 
 def index(request):
     try:
@@ -21,13 +23,15 @@ def index(request):
     label = [element[0] for element in histogram_data]
     data = [element[1] for element in histogram_data]
 
+    # comment = sugoikannsuu()
+    comments = [("hello", 10), ("donraku", 5), ("otsu", 3)]
+
     return render(
         request, 'live/index.html',
         {
             'live_url': live_url,
-            # 'test_label': [1,2,3,4,5,6,100], 
-            # 'test_data': [0, 10, 5, 2, 20, 30, 45]
-            'test_label': label, 
-            'test_data': data
+            'chart_label': label,
+            'chart_data': data, 
+            'comments': comments
         }
     )
