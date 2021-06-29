@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import requests
 import MeCab
 
-class Analisis():
+class Live():
     
     def __init__(self, video_url):
         self.video_url = video_url
@@ -173,10 +173,10 @@ class Analisis():
                     Chat_No += 1
         result.append((result[-1][0] + interval, len(self.chat_data) - Chat_No))
         return result
-        
-    def get_word_data(self, word):
+
+    def get_word_ranking(self, n):
         wakati = MeCab.Tagger("-F'%M/%f[0] ' --eos-format='' -d /usr/local/lib/mecab/dic/mecab-ipadic-neologd")
-        #wakati = MeCab.Tagger("-F'%M/%f[0] ' --eos-format='' -d /var/lib/mecab/dic/debian") #森崎用
+#        wakati = MeCab.Tagger("-F'%M/%f[0] ' --eos-format='' -d /var/lib/mecab/dic/debian") #森崎用
         d = list(map(lambda x: x[0], self.chat_data))
         counter = Counter()
         for e in d:
@@ -188,10 +188,14 @@ class Analisis():
                 )
             )
             counter.update(f)
+        return counter.most_common(n)
+        
+    def get_word_data(self, word):
         return list(map(lambda x: x[1], filter(lambda x: word in x[0], self.chat_data)))
 
     
-a = Analisis('https://www.youtube.com/watch?v=-mZnoc6dI9A')
+a = Live('https://www.youtube.com/watch?v=-mZnoc6dI9A')
 print(a.chat_data)
 print(a.get_histogram(60))
+print(a.get_word_ranking(5))
 print(a.get_word_data("草"))
