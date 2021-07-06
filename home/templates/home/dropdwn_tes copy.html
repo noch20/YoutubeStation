@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>dropdown</title>
+        <link rel="stylesheet" href="{% static 'live/css/drop.css' %}">
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+        <script src="{% static 'live/js/jquery-3.6.0.min.js' %}"></script>
+        <script src="{% static 'live/js/drop.js' %}"></script>
+
+    </head>
+
+    <header>
+    
+        <h1>
+            <a href="/">YouTube Station</a>
+        </h1>
+
+        <nav calss="header-nav">
+            <ul class="dropdwn">
+                <li>A
+                    <ul class="dropdwn_menu">
+                        <li><a href="#">A1</a></li>
+                        <li><a href="#">A1</a></li>
+                    </ul>
+                </li>
+                <li>B
+                    <ul class="dropdwn_menu">
+                        <li><a href="#">B1</a></li>
+                        <li><a href="#">B2</a></li>
+                        <li><a href="#">B3</a></li>
+                    </ul>
+                </li>
+                <li>C
+                    <ul class="dropdwn_menu">
+                        <li><a href="#">C1</a></li>
+                        <li><a href="#">C2</a></li>
+                        <li><a href="#">C3</a></li>
+                        <li><a href="#">C4</a></li>
+                    </ul>
+                </li>
+                <li>D
+                    <ul class="dropdwn_menu">
+                        <li><a href="#">D1</a></li>
+                        <li><a href="#">D2</a></li>
+                        <li><a href="#">D3</a></li>
+                        <li><a href="#">D4</a></li>
+                        <li><a href="#">D5</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+</html>
