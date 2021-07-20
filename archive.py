@@ -167,15 +167,6 @@ class Live():
                 ret += int(h_m_s[1]) * 60 + int(h_m_s[0])
         return ret
 
-        # colon = s.find(":")
-        # ret = int(s[:colon]) * 60
-        # if ret < 0:
-        #     ret -= int(s[colon+1:])
-        # else:
-        #     ret += int(s[colon+1:])
-        # return ret
-
-
     def get_histogram(self, interval):
         result = []
         max_time = self.chat_data[-1][1] 
@@ -213,8 +204,8 @@ class Live():
         return list(map(lambda x: x[1], filter(lambda x: word in x[0], self.chat_data)))
 
     
-a = Live('https://www.youtube.com/watch?v=GxWbvap4oQk&t=3732s')
-#a = Live('https://www.youtube.com/watch?v=-mZnoc6dI9A&t=155s')
+a = Live('https://www.youtube.com/watch?v=GxWbvap4oQk&t=3732s')  #MKR(スパチャあり)
+#a = Live('https://www.youtube.com/watch?v=-mZnoc6dI9A&t=155s')  #すし(スパチャなし)
 #print(a.chat_data)
 print(a.superchat_data)
 #print(a.get_histogram(60))
