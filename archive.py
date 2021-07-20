@@ -9,7 +9,7 @@ class Live():
     
     def __init__(self, video_url):
         self.video_url = video_url
-        self.chat_data = self.get_chat_replay_data()
+        self.chat_data, self.superchat_data = self.get_chat_replay_data()
 
     def session_get(self, url: str) -> requests.Response:
         return requests.Session().get(url, headers={
@@ -113,6 +113,7 @@ class Live():
 
     def get_chat_replay_data(self):
         result = []
+        result_super = []
         continuation = ""
         continuation = self.get_initial_continuation()
 
@@ -135,6 +136,7 @@ class Live():
                     chatlog = self.convert_chatreplay(item['liveChatTextMessageRenderer'])
                 elif 'liveChatPaidMessageRenderer' in item:
                     chatlog = self.convert_chatreplay(item['liveChatPaidMessageRenderer'])
+                    result_super.append(chatlog)
 
                 if 'liveChatTextMessageRenderer' in item or 'liveChatPaidMessageRenderer' in item:
                     chatlog['video_id'] = self.video_url[32:]
@@ -142,19 +144,36 @@ class Live():
                     result.append(chatlog)
                     count += 1
             
-
             continuation = self.get_continuation(ytInitialData)
-
-        return list(map(lambda x: (x["text"], self.string2seconds(x["time"])), result))
+            chat_data = list(map(lambda x: (x["text"], self.string2seconds(x["time"])), result))
+            superchat_data = list(map(lambda x: (x["text"], self.string2seconds(x["time"]), x["purchaseAmount"]), result_super))
+        return chat_data, superchat_data
 
     def string2seconds(self, s: str) -> int:
-        colon = s.find(":")
-        ret = int(s[:colon]) * 60
-        if ret < 0:
-            ret -= int(s[colon+1:])
+        colon_count = s.count(":")
+        if colon_count == 1:
+            m_s = s.split(":")
+            ret = int(m_s[0]) * 60
+            if ret < 0:
+                ret -= int(m_s[1])
+            else:
+                ret += int(m_s[1])
         else:
-            ret += int(s[colon+1:])
+            h_m_s = s.split(":")
+            ret = int(h_m_s[0]) * 3600
+            if ret < 0:
+                ret -= int(h_m_s[1]) * 60 + int(h_m_s[0])
+            else:
+                ret += int(h_m_s[1]) * 60 + int(h_m_s[0])
         return ret
+
+        # colon = s.find(":")
+        # ret = int(s[:colon]) * 60
+        # if ret < 0:
+        #     ret -= int(s[colon+1:])
+        # else:
+        #     ret += int(s[colon+1:])
+        # return ret
 
 
     def get_histogram(self, interval):
@@ -175,8 +194,8 @@ class Live():
         return result
 
     def get_word_ranking(self, n):
-        wakati = MeCab.Tagger("-F'%M/%f[0] ' --eos-format='' -d /usr/local/lib/mecab/dic/mecab-ipadic-neologd")
-#        wakati = MeCab.Tagger("-F'%M/%f[0] ' --eos-format='' -d /var/lib/mecab/dic/debian") #森崎用
+#        wakati = MeCab.Tagger("-F'%M/%f[0] ' --eos-format='' -d /usr/local/lib/mecab/dic/mecab-ipadic-neologd")
+        wakati = MeCab.Tagger("-F'%M/%f[0] ' --eos-format='' -d /var/lib/mecab/dic/debian") #森崎用
         d = list(map(lambda x: x[0], self.chat_data))
         counter = Counter()
         for e in d:
@@ -194,8 +213,10 @@ class Live():
         return list(map(lambda x: x[1], filter(lambda x: word in x[0], self.chat_data)))
 
     
-a = Live('https://www.youtube.com/watch?v=-mZnoc6dI9A')
-print(a.chat_data)
-print(a.get_histogram(60))
-print(a.get_word_ranking(5))
-print(a.get_word_data("草"))
+a = Live('https://www.youtube.com/watch?v=GxWbvap4oQk&t=3732s')
+#a = Live('https://www.youtube.com/watch?v=-mZnoc6dI9A&t=155s')
+#print(a.chat_data)
+print(a.superchat_data)
+#print(a.get_histogram(60))
+#print(a.get_word_ranking(5))
+#print(a.get_word_data("草"))
