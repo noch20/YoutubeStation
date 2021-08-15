@@ -1,39 +1,55 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>YouTubed Station</title>
-        <link rel="stylesheet" href="{% static 'home/css/index.css' %}">
+        <link rel="stylesheet" href="{% static 'home/css/a.css' %}">
         <script src="{% static 'home/js/jquery-3.6.0.min.js' %}"></script>
         <script src="{% static 'home/js/index.js' %}"></script>
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
     </head>
 
     <body>
         <header>
-            <div class="header-logo"><a href="http://127.0.0.1:8000/">YouTube_Station</a></div>
-            <div class="header-menu">
-                <ul class="nav">
-                    <li>概要</li>
-                    <li>お問い合わせ</li>
+            <!-- <div class="header-logo"><a href="http://127.0.0.1:8000/">YouTube_Station</a></div> -->
+            <ul class="header-menu">
+                <li class="header-home"><a href="http://127.0.0.1:8000/">YouTube_Station</a></li>
+                <li>解析
+                <ul class="dropdwn_menu">
+                <li><a href="#">Channel</a></li>
+                <li><a href="#">Live</a></li>
+                <li><a href="#">Movie</a></li>
                 </ul>
-            </div>
-            <div class="ad">
-                <!-- <p>一番伝えたいことを書く</p> -->
-            </div>
+                </li>
+                <li>お問い合わせ
+                <ul class="dropdwn_menu">
+                    <li><a href="#">お問い合わせ先</a></li>
+                    <li><a href="#">広告掲載について</a></li>
+                    </ul>
+                </li>
+                
+            </ul>
         </header>
-        <!-- <div class="main">
-            <div class="form">
+        <div class="ad">
+            <!-- <p>一番伝えたいことを書く</p> -->
+        </div>
+
+    
+        <div class="main">
+            <!-- <div class="form">
                 <input type="text" class="input">
                 <input type="button" class="submit">
-            </div> -->
+            </div>  -->
+
             <div class="contents">
                 <h2 class="contents-title">Contents</h2>
                 <ul class="contents-list-wrapp">
                     <li class="contents-item">
                         <a href="http://127.0.0.1:8000/">
-                            <img src="{% static 'home/img/channel.png' %}" alt="My image1">
+                            <img src="{% static 'home/img/youtube.png' %}" alt="My image1">
                         </a> 
                         <p class="contents-subtitle"><a href="http://127.0.0.1:8000/">Channel</a></p>
                         <p> 
@@ -42,30 +58,34 @@
                     </li>
                 
                     <li class="contents-item">
-                        <a href="{% url 'live:index' %}">
-                          <img src="{% static 'home/img/Live.png' %}" alt="My image2">
+                        <a href="http://127.0.0.1:8000/live/">
+                          <img src="{% static 'home/img/mike.png' %}" alt="My image2">
                         </a>
                         <p class="contents-subtitle">
-                          <a href="{% url 'live:index' %}">Live</a>
+                          <a href="http://127.0.0.1:8000/live/">Live</a>
                         </p>
-                        <p>　ここではライブについての</p>
-                        <p>解析を行います</p>
+                        <p>ここではライブについての解析を行います</p>
                     </li>
 
                     <li class="contents-item">
                         <a href="http://127.0.0.1:8000/">
-                            <img src="{% static 'home/img/Movie.png' %}" alt="My image3">
+                            <img src="{% static 'home/img/camera.png' %}" alt="My image3">
                         </a>
-                        <p class="contents-subtitle"><a href="http://127.0.0.1:8000/">Movie</a></p>
+                        <p class="contents-subtitle"><a href="http://127.0.0.1:8000/drop/">Movie</a></p>
 
-                        <p>　ここでは動画についての</p>
-                        <p>解析を行います</p>
+                        <p>　ここでは動画についての解析を行います</p>
                     </li>
                 </ul>
             </div>
         </div>
         <footer>
-            <p>フッター</p>
+
+            <li>
+                <p>contact us</p>
+                <li><a href="./" class="flowbtn10"><i class="fab fa-twitter"></i></a>
+                    <a href="./" class="flowbtn10"><i class="fab fa-instagram"></i></a>
+                </li>
+            </li>
         </footer>
     </body>
 </html>
