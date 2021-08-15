@@ -18,14 +18,14 @@
         <div>
             <canvas id="chart"></canvas>
             <script>
-                const labels = {{ test_label }};
+                const labels = {{ label }};
                 const data = {
                 labels: labels,
                 datasets: [{
                     label: 'My First dataset',
                     backgroundColor: 'rgb(255, 99, 132)',
                     borderColor: 'rgb(255, 99, 132)',
-                    data: {{ test_data }},
+                    data: {{ data }},
                 }]
                 };
                 const config = {
