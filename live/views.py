@@ -16,7 +16,7 @@ def index(request):
 
     data = get_chat_replay_data(live_url)
     chatlog = list(map(lambda x: (x["text"], string2seconds(x["time"])), data))
-    interval = 180
+    interval = 60
     histogram_data = histogram(chatlog, interval)
     label = [element[0] for element in histogram_data]
     data = [element[1] for element in histogram_data]

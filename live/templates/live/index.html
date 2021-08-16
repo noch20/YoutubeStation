@@ -36,6 +36,14 @@
                             x: {
                                 type: 'linear'
                             }
+                        },
+                        onClick: (evt) => {
+                            var elements = chart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
+                            var firstElement = elements[0];
+                            if(firstElement){
+                                var label = chart.data.labels[firstElement.index];
+                                window.open("{{ live_url }}&t=" + label);
+                            }
                         }
                     }
                 }
